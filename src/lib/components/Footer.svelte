@@ -58,6 +58,13 @@
 		</div>
 	</div>
 	<div class="border-t border-line py-5 text-center text-sm text-muted">
-		© 2026 Lumina Beauty Studio. All rights reserved. · Mock website — content for design approval.
+		<p class="flex flex-wrap justify-center gap-x-5 gap-y-2 px-4">
+			<a href="/faq" class="min-h-11 content-center hover:text-gold-dark">FAQ</a>
+			<a href="/policies" class="min-h-11 content-center hover:text-gold-dark">Booking Policies</a>
+			<a href="/privacy" class="min-h-11 content-center hover:text-gold-dark">Privacy Policy</a>
+			<a href="/terms" class="min-h-11 content-center hover:text-gold-dark">Terms of Service</a>
+			<a href="/sitemap.xml" class="min-h-11 content-center hover:text-gold-dark">Sitemap</a>
+		</p>
+		<p class="mt-2 px-4">© 2026 Lumina Beauty Studio. All rights reserved. · Mock website — content for design approval.</p>
 	</div>
 </footer>

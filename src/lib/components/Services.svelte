@@ -1,9 +1,19 @@
 <script lang="ts">
-	import { Flower2, Scissors, Sparkles, Droplets } from '@lucide/svelte';
+	import { Flower2, Heart, Scissors, Sparkles, Droplets, Gem } from '@lucide/svelte';
 	import { inr, services } from '#lib/data/site.ts';
 	import Picture from './Picture.svelte';
 
-	const icons = { scissors: Scissors, nail: Droplets, face: Sparkles, lotus: Flower2 } as const;
+	const icons = {
+		scissors: Scissors,
+		nail: Droplets,
+		face: Sparkles,
+		lotus: Flower2,
+		sparkles: Gem,
+		heart: Heart
+	} as const;
+
+	// Homepage shows the four core services; the full list lives on /services.
+	const featured = services.slice(0, 4);
 </script>
 
 <section id="services" class="bg-white py-16 sm:py-20">
@@ -18,7 +28,7 @@
 		</div>
 
 		<div class="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-			{#each services as service}
+			{#each featured as service}
 				{@const Icon = icons[service.icon]}
 				<article class="group text-center">
 					<div class="relative mx-auto w-44 max-w-full">
@@ -48,7 +58,7 @@
 					</p>
 					<p class="mt-2 text-sm font-semibold text-gold-dark">From {inr(service.priceFrom)}</p>
 					<a
-						href="#book"
+						href="/book?service={service.id}"
 						class="mt-3 inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold text-gold-dark underline decoration-gold/40 underline-offset-4 transition-colors hover:text-ink"
 						aria-label="Book {service.title}"
 					>
@@ -60,6 +70,14 @@
 
 		<p class="mx-auto mt-12 max-w-xl text-center leading-relaxed text-muted">
 			We use premium products and advanced techniques to bring out the best in you. Because you deserve to shine.
+		</p>
+		<p class="mt-6 text-center">
+			<a
+				href="/services"
+				class="inline-flex min-h-12 items-center rounded-full border border-gold/50 px-7 text-base font-semibold text-gold-dark transition-colors duration-200 hover:border-gold-dark"
+			>
+				View all services & prices →
+			</a>
 		</p>
 	</div>
 </section>

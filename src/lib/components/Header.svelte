@@ -22,7 +22,7 @@
 		: ''}"
 >
 	<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-		<a href="#home" class="flex min-h-11 items-center gap-2 text-gold-dark" aria-label="Lumina Beauty Studio — home">
+		<a href="/" class="flex min-h-11 items-center gap-2 text-gold-dark" aria-label="Lumina Beauty Studio — home">
 			<Logo />
 			<span class="leading-none">
 				<span class="block font-display text-[1.4rem] tracking-[0.18em] text-ink">LUMINA</span>
@@ -41,12 +41,20 @@
 			{/each}
 		</nav>
 
-		<div class="hidden text-right leading-tight md:block">
-			<a href={site.phoneHref} class="flex min-h-11 items-center justify-end gap-1.5 text-[0.95rem] font-semibold text-ink">
-				<Phone size={15} aria-hidden="true" />
-				{site.phoneDisplay}
+		<div class="hidden items-center gap-4 md:flex">
+			<div class="text-right leading-tight">
+				<a href={site.phoneHref} class="flex min-h-11 items-center justify-end gap-1.5 text-[0.95rem] font-semibold text-ink">
+					<Phone size={15} aria-hidden="true" />
+					{site.phoneDisplay}
+				</a>
+				<p class="text-xs text-muted">Bandra West, Mumbai</p>
+			</div>
+			<a
+				href="/book"
+				class="inline-flex min-h-11 items-center rounded-full bg-gold px-5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gold-dark"
+			>
+				Book Appointment
 			</a>
-			<p class="text-xs text-muted">Bandra West, Mumbai</p>
 		</div>
 
 		<button
@@ -62,7 +70,12 @@
 	</div>
 
 	{#if open}
-		<nav id="mobile-menu" aria-label="Mobile" class="border-t border-line bg-cream px-4 pb-4 pt-2 lg:hidden">
+		<nav
+			id="mobile-menu"
+			aria-label="Mobile"
+			data-lenis-prevent
+			class="border-t border-line bg-cream px-4 pb-4 pt-2 lg:hidden"
+		>
 			{#each nav as item}
 				<a
 					href={item.href}
@@ -73,7 +86,7 @@
 				</a>
 			{/each}
 			<a
-				href="#book"
+				href="/book"
 				class="mt-4 flex min-h-12 items-center justify-center rounded-full bg-gold px-6 text-base font-semibold text-white"
 				onclick={() => (open = false)}
 			>

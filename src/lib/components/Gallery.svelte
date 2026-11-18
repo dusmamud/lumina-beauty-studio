@@ -34,5 +34,13 @@
 				</figure>
 			{/each}
 		</div>
+		<p class="mt-10 text-center">
+			<a
+				href="/gallery"
+				class="inline-flex min-h-12 items-center rounded-full border border-gold/50 px-7 text-base font-semibold text-gold-dark transition-colors duration-200 hover:border-gold-dark"
+			>
+				View full gallery →
+			</a>
+		</p>
 	</div>
 </section>

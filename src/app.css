@@ -50,6 +50,29 @@ body {
 	}
 }
 
+/* Marquee: transform-only loop, pauses on hover, stops for reduced motion */
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+.marquee-track {
+	display: flex;
+	width: max-content;
+	animation: marquee 28s linear infinite;
+}
+.marquee:hover .marquee-track {
+	animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+	.marquee-track {
+		animation: none;
+	}
+}
+
 .reveal {
 	opacity: 0;
 	transform: translateY(16px);

@@ -12,20 +12,27 @@ export const site = {
 	tagline: 'Reveal Your Natural Beauty.',
 	phoneDisplay: '+91 98765 43210',
 	phoneHref: 'tel:+919876543210',
+	whatsappHref:
+		'https://wa.me/919876543210?text=Hi%20Lumina%2C%20I%20want%20to%20book%20an%20appointment',
 	email: 'hello@luminabeauty.in',
 	address: '2nd Floor, 14 Glow Lane, Linking Road, Bandra West, Mumbai 400 050, India',
+	addressShort: 'Linking Road, Bandra West, Mumbai',
 	hours: 'Mon – Sat: 9:00 AM – 7:00 PM IST',
 	hoursShort: 'Mon – Sat: 9:00 AM – 7:00 PM',
-	url: 'https://luminabeauty.in'
+	url: 'https://luminabeauty.in',
+	mapEmbed:
+		'https://maps.google.com/maps?q=Linking%20Road%2C%20Bandra%20West%2C%20Mumbai%20400050&t=&z=15&ie=UTF8&iwloc=&output=embed',
+	areas: ['Bandra West', 'Khar', 'Santacruz', 'Juhu', 'Andheri', 'Dadar', 'Mahim', 'Bandra East']
 } as const;
 
 export const nav = [
-	{ label: 'Home', href: '#home' },
-	{ label: 'About Us', href: '#about' },
-	{ label: 'Services', href: '#services' },
-	{ label: 'Gallery', href: '#gallery' },
-	{ label: 'Blog', href: '#blog' },
-	{ label: 'Contact', href: '#contact' }
+	{ label: 'Home', href: '/' },
+	{ label: 'About Us', href: '/about' },
+	{ label: 'Services', href: '/services' },
+	{ label: 'Bridal', href: '/bridal' },
+	{ label: 'Gallery', href: '/gallery' },
+	{ label: 'Blog', href: '/blog' },
+	{ label: 'Contact', href: '/contact' }
 ] as const;
 
 export type Service = {
@@ -34,7 +41,7 @@ export type Service = {
 	description: string;
 	image: string;
 	imageAlt: string;
-	icon: 'scissors' | 'nail' | 'face' | 'lotus';
+	icon: 'scissors' | 'nail' | 'face' | 'lotus' | 'sparkles' | 'heart';
 	priceFrom: number;
 };
 
@@ -74,6 +81,306 @@ export const services: Service[] = [
 		imageAlt: 'Woman with flawless natural makeup and glowing skin',
 		icon: 'lotus',
 		priceFrom: 799
+	},
+	{
+		id: 'bridal-makeup',
+		title: 'Bridal Makeup',
+		description: 'HD & airbrush looks for your big day',
+		image: 'gallery-bridal',
+		imageAlt: 'Indian bride with elegant bridal makeup',
+		icon: 'sparkles',
+		priceFrom: 14999
+	},
+	{
+		id: 'party-makeup',
+		title: 'Party Makeup',
+		description: 'Soft glam for evenings & events',
+		image: 'service-beauty',
+		imageAlt: 'Natural glam makeup look',
+		icon: 'heart',
+		priceFrom: 4999
+	}
+];
+
+export type ServiceDetail = {
+	long: string;
+	duration: string;
+	includes: string[];
+	addOns: { name: string; price: number }[];
+	faqs: { q: string; a: string }[];
+};
+
+export const serviceDetails: Record<string, ServiceDetail> = {
+	'bridal-makeup': {
+		long: 'Your wedding look, built around you — skin prep, a trial, and one artist with you from the first function to the last photo. We do one bride a day, so your date is fully yours.',
+		duration: '3 hrs per look',
+		includes: [
+			'HD or airbrush makeup with false lashes',
+			'Hairstyling + dupatta / saree draping',
+			'Touch-up kit for the day',
+			'Skin-prep consultation before the wedding',
+			'Travel within Bandra West included'
+		],
+		addOns: [
+			{ name: 'Extra function look (haldi / sangeet)', price: 9999 },
+			{ name: 'Outstation travel (per day)', price: 5000 },
+			{ name: 'Second artist for bridesmaids', price: 4999 }
+		],
+		faqs: [
+			{
+				q: 'How far ahead should I book my bridal date?',
+				a: '4–6 months ahead for peak wedding season (Nov–Feb). We take one bride per day and dates fill fast — a 40% advance locks your date.'
+			},
+			{
+				q: 'Do you offer a trial?',
+				a: 'Yes. Confirmed bookings get a free half-face trial so you can see the look on your own skin before the day.'
+			},
+			{
+				q: 'Will the makeup last in Mumbai heat and humidity?',
+				a: 'Yes — we use long-wear HD and airbrush products, set with fixing spray, and give you a touch-up kit for the day.'
+			}
+		]
+	},
+	'party-makeup': {
+		long: 'Soft glam that photographs beautifully and feels light — for sangeets, receptions, birthdays, shoots and evenings out. Ready in about 90 minutes.',
+		duration: '90 min',
+		includes: [
+			'Soft glam or bold evening look',
+			'False lashes included',
+			'Quick hairstyling (waves / bun / blowout)',
+			'Setting spray + blotting paper kit'
+		],
+		addOns: [
+			{ name: 'Hair updo upgrade', price: 999 },
+			{ name: 'Airbrush finish', price: 1499 },
+			{ name: 'Group of 3+ (per person discount)', price: -500 }
+		],
+		faqs: [
+			{
+				q: 'How long before my event should I book?',
+				a: 'A day or two is usually enough on weekdays; weekends fill up, so book 3–4 days ahead.'
+			},
+			{
+				q: 'Can I bring my own outfit for colour matching?',
+				a: 'Yes, please do — bring your outfit or a photo and we match the look to it.'
+			}
+		]
+	},
+	'hair-styling': {
+		long: 'Cuts, colour and styling by senior stylists who work with Indian hair every day — wavy, curly, thick or fine. We talk first, cut second.',
+		duration: '45–90 min',
+		includes: [
+			'Consultation + wash',
+			'Cut or colour by a senior stylist',
+			'Blow-dry finish',
+			'Aftercare advice for your hair type'
+		],
+		addOns: [
+			{ name: 'Balayage / global colour', price: 4999 },
+			{ name: 'Keratin spa ritual', price: 2999 },
+			{ name: 'Hair spa + head massage', price: 1299 }
+		],
+		faqs: [
+			{
+				q: 'Do you work with curly hair?',
+				a: 'Yes — two of our stylists specialise in curly cuts and colour that respects your natural pattern.'
+			},
+			{
+				q: 'Will you do a patch test before colour?',
+				a: 'Always, on your first colour visit — free, 48 hours before the appointment.'
+			}
+		]
+	},
+	'skin-treatments': {
+		long: 'Facials and skin rituals matched to your skin, not a menu — deep cleanse, glow, hydration or calming care for sensitive skin.',
+		duration: '60–90 min',
+		includes: [
+			'Skin analysis first',
+			'Deep cleanse + exfoliation',
+			'Mask + glow massage',
+			'SPF + aftercare plan'
+		],
+		addOns: [
+			{ name: 'Under-eye brightening', price: 799 },
+			{ name: 'Back + shoulder polish', price: 1499 },
+			{ name: 'Monthly glow membership (4 facials)', price: 7999 }
+		],
+		faqs: [
+			{
+				q: 'I have sensitive skin. Is a facial safe for me?',
+				a: 'Yes — tell us at booking and we use fragrance-free, patch-tested products and skip active exfoliation.'
+			},
+			{
+				q: 'How often should I get a facial?',
+				a: 'Every 4–6 weeks is ideal. Before a big event, book 3–5 days ahead, not the day before.'
+			}
+		]
+	},
+	'nail-care': {
+		long: 'Classic care, gel polish and nail art — with hospital-grade hygiene: sterilised tools, single-use files and sealed polishes.',
+		duration: '45–90 min',
+		includes: [
+			'Soak, shape + cuticle care',
+			'Gel or classic polish',
+			'Hand massage',
+			'Nail art on request'
+		],
+		addOns: [
+			{ name: 'Nail art (per nail)', price: 149 },
+			{ name: 'Gel extensions (full set)', price: 2999 },
+			{ name: 'Paraffin treatment', price: 799 }
+		],
+		faqs: [
+			{
+				q: 'How long does gel polish last?',
+				a: '2–3 weeks with normal care. We remove it free at your next visit.'
+			},
+			{
+				q: 'Are your tools sterilised?',
+				a: 'Yes — metal tools are autoclaved between clients and files are single-use.'
+			}
+		]
+	},
+	'beauty-treatments': {
+		long: 'Gentle waxing, threading and clean-up with hygiene-first care — fresh strips, disposable applicators and patch tests on request.',
+		duration: '20–60 min',
+		includes: [
+			'Waxing / threading of your choice',
+			'Soothing post-care',
+			'Patch test on request',
+			'Aftercare guidance'
+		],
+		addOns: [
+			{ name: 'Full-body waxing', price: 2999 },
+			{ name: 'Brow shaping + tint', price: 699 },
+			{ name: 'Lash lift', price: 1999 }
+		],
+		faqs: [
+			{
+				q: 'Is waxing safe for sensitive skin?',
+				a: 'Yes — we use gentle wax and a patch test first if you have reactive skin.'
+			},
+			{
+				q: 'How long should hair be before waxing?',
+				a: 'About 2 weeks of growth gives the smoothest result.'
+			}
+		]
+	}
+};
+
+export type Artist = {
+	id: string;
+	name: string;
+	role: string;
+	level: string;
+	specialties: string[];
+	experience: string;
+	image: string;
+	imageAlt: string;
+	days: string;
+	bio: string;
+};
+
+export const artists: Artist[] = [
+	{
+		id: 'meera',
+		name: 'Meera Kapoor',
+		role: 'Founder & Lead Bridal Artist',
+		level: 'Founder',
+		specialties: ['Bridal HD', 'Airbrush', 'Sangeet looks'],
+		experience: '8+ years',
+		image: 'about-main',
+		imageAlt: 'Meera Kapoor, founder and lead bridal artist',
+		days: 'Tue – Sat',
+		bio: 'Trained in Mumbai and London, Meera has done 1,000+ brides. She does one bride a day and stays with you from the first function to the last photo.'
+	},
+	{
+		id: 'aisha',
+		name: 'Aisha Khan',
+		role: 'Senior Makeup Artist',
+		level: 'Senior',
+		specialties: ['Party glam', 'Editorial looks', 'Skin-first makeup'],
+		experience: '6 years',
+		image: 'service-beauty',
+		imageAlt: 'Aisha Khan, senior makeup artist',
+		days: 'Mon – Sat',
+		bio: 'Aisha is the soft-glam specialist — looks that feel like skin, photograph beautifully, and last through long evenings.'
+	},
+	{
+		id: 'ravi',
+		name: 'Ravi Desai',
+		role: 'Senior Hair Stylist',
+		level: 'Senior',
+		specialties: ['Curly cuts', 'Balayage', 'Bridal hair'],
+		experience: '7 years',
+		image: 'service-hair',
+		imageAlt: 'Ravi Desai, senior hair stylist',
+		days: 'Mon, Wed – Sat',
+		bio: 'Ravi works with Indian hair textures every day — curls, waves and thick hair that most stylists thin out. He never does.'
+	},
+	{
+		id: 'sana',
+		name: 'Sana Sheikh',
+		role: 'Skin & Nail Specialist',
+		level: 'Senior',
+		specialties: ['Glow facials', 'Sensitive skin', 'Gel nails'],
+		experience: '5 years',
+		image: 'service-skin',
+		imageAlt: 'Sana Sheikh, skin and nail specialist',
+		days: 'Tue – Sun',
+		bio: 'Sana builds skin routines, not one-off facials — and her gel manicures are the reason half of Bandra books a month ahead.'
+	}
+];
+
+export type BridalPackage = {
+	id: string;
+	name: string;
+	price: number;
+	tag?: string;
+	looks: string;
+	includes: string[];
+};
+
+export const bridalPackages: BridalPackage[] = [
+	{
+		id: 'hd-bridal',
+		name: 'HD Bridal',
+		price: 24999,
+		looks: '1 look · wedding day',
+		includes: [
+			'HD makeup + lashes',
+			'Hairstyling + draping',
+			'Touch-up kit',
+			'Skin-prep consultation',
+			'Free half-face trial'
+		]
+	},
+	{
+		id: 'airbrush-bridal',
+		name: 'Airbrush Bridal',
+		price: 34999,
+		tag: 'Most booked',
+		looks: '1 look · wedding day',
+		includes: [
+			'Everything in HD Bridal',
+			'Airbrush foundation (16-hr wear)',
+			'Second look touch-up for reception',
+			'Premium lashes + hair accessories',
+			'On-location service in Mumbai'
+		]
+	},
+	{
+		id: 'signature-combo',
+		name: 'Signature + Sangeet Combo',
+		price: 54999,
+		looks: '3 looks · sangeet + wedding + reception',
+		includes: [
+			'Everything in Airbrush Bridal',
+			'3 complete looks, one artist throughout',
+			'Dedicated assistant on the day',
+			'Bridesmaid mini-looks (2 included)',
+			'Priority dates — one bride a day'
+		]
 	}
 ];
 
@@ -88,18 +395,26 @@ export const pricing: PriceItem[] = [
 	{ service: 'Waxing & Threading', detail: 'Full arms, legs & face — gentle care', price: 1299, duration: '45 min' }
 ];
 
-export type GalleryItem = { image: string; alt: string; label: string };
+export type GalleryItem = { image: string; alt: string; label: string; category: string };
 
 export const gallery: GalleryItem[] = [
-	{ image: 'gallery-bridal', alt: 'Indian bride with elegant bridal makeup', label: 'Bridal' },
-	{ image: 'service-beauty', alt: 'Natural glam makeup look', label: 'Makeup' },
-	{ image: 'service-hair', alt: 'Wavy hair styling', label: 'Hair' },
-	{ image: 'service-skin', alt: 'Facial skin treatment', label: 'Skin' },
-	{ image: 'about-main', alt: 'Soft glam portrait', label: 'Glam' },
-	{ image: 'service-nails', alt: 'Glossy manicured nails', label: 'Nails' }
+	{ image: 'gallery-bridal', alt: 'Indian bride with elegant bridal makeup', label: 'Bridal', category: 'Bridal' },
+	{ image: 'service-beauty', alt: 'Natural glam makeup look', label: 'Makeup', category: 'Party' },
+	{ image: 'service-hair', alt: 'Wavy hair styling', label: 'Hair', category: 'Hair' },
+	{ image: 'service-skin', alt: 'Facial skin treatment', label: 'Skin', category: 'Skin' },
+	{ image: 'about-main', alt: 'Soft glam portrait', label: 'Glam', category: 'Party' },
+	{ image: 'service-nails', alt: 'Glossy manicured nails', label: 'Nails', category: 'Nails' },
+	{ image: 'about-facial', alt: 'Relaxing facial treatment in progress', label: 'Facial', category: 'Skin' },
+	{ image: 'gallery-bridal', alt: 'Bridal look with traditional jewellery', label: 'Bridal', category: 'Bridal' },
+	{ image: 'service-hair', alt: 'Blow-dry finish with soft waves', label: 'Hair', category: 'Hair' },
+	{ image: 'service-nails', alt: 'Nail art with dark glossy polish', label: 'Nails', category: 'Nails' },
+	{ image: 'service-beauty', alt: 'Evening glam makeup', label: 'Glam', category: 'Party' },
+	{ image: 'about-main', alt: 'Soft glam portrait in natural light', label: 'Bridal', category: 'Bridal' }
 ];
 
-export type Testimonial = { name: string; role: string; quote: string; rating: number };
+export const galleryCategories = ['All', 'Bridal', 'Party', 'Hair', 'Skin', 'Nails'] as const;
+
+export type Testimonial = { name: string; role: string; quote: string; rating: number; service?: string; date?: string };
 
 export const testimonials: Testimonial[] = [
 	{
@@ -107,51 +422,246 @@ export const testimonials: Testimonial[] = [
 		role: 'Bride, Mumbai',
 		quote:
 			'My bridal makeup stayed flawless from the morning ceremony to late night. I felt like the best version of myself — calm, confident and glowing in every photo.',
-		rating: 5
+		rating: 5,
+		service: 'Airbrush Bridal',
+		date: 'Oct 2026'
 	},
 	{
 		name: 'Priya Mehta',
 		role: 'Regular client, Bandra',
 		quote:
 			'The team listens first and then suggests what suits you. My haircut and facial are now a monthly ritual I genuinely look forward to.',
-		rating: 5
+		rating: 5,
+		service: 'Haircut + Facial',
+		date: 'Nov 2026'
 	},
 	{
 		name: 'Kavya Iyer',
 		role: 'Party makeup, Juhu',
 		quote:
 			'Booked for a family function and got so many compliments. The look was soft and natural, never heavy — exactly what I asked for.',
-		rating: 5
+		rating: 5,
+		service: 'Party Makeup',
+		date: 'Sep 2026'
+	},
+	{
+		name: 'Ritu Malhotra',
+		role: 'Bride, Santacruz',
+		quote:
+			'Meera did my sangeet, wedding and reception looks — three days, one artist, zero stress. My mother has already booked her for my sister.',
+		rating: 5,
+		service: 'Signature Combo',
+		date: 'Aug 2026'
+	},
+	{
+		name: 'Sana Qureshi',
+		role: 'Bride, Khar',
+		quote:
+			'The trial sold me. I saw the look on my own skin, changed two things, and on the day it was perfect. Worth every rupee.',
+		rating: 5,
+		service: 'HD Bridal',
+		date: 'Jul 2026'
+	},
+	{
+		name: 'Neha Agarwal',
+		role: 'Regular client, Andheri',
+		quote:
+			'Gel nails that actually last three weeks, and a facial that leaves my skin glowing for days. The studio is calm, clean and never rushed.',
+		rating: 4,
+		service: 'Gel Nails + Facial',
+		date: 'Nov 2026'
 	}
 ];
 
-export type BlogPost = { title: string; category: string; date: string; excerpt: string; image: string; alt: string };
+export type BlogPost = {
+	slug: string;
+	title: string;
+	category: string;
+	date: string;
+	excerpt: string;
+	image: string;
+	alt: string;
+	body: string[];
+};
 
 export const blogPosts: BlogPost[] = [
 	{
+		slug: 'bridal-makeup-tips-mumbai-summer-wedding',
 		title: '5 Bridal Makeup Tips for a Mumbai Summer Wedding',
 		category: 'Bridal',
 		date: '12 Nov 2026',
 		excerpt: 'Heat, humidity and long ceremonies — how to keep your bridal look fresh from morning to midnight.',
 		image: 'gallery-bridal',
-		alt: 'Indian bride with elegant bridal makeup'
+		alt: 'Indian bride with elegant bridal makeup',
+		body: [
+			'Mumbai summer weddings are beautiful — and brutal on makeup. Heat, humidity, a morning pheras and a late-night reception mean your look has to survive 12+ hours, flash photography and happy tears.',
+			'First, prep beats product. Start hydrating your skin a week before the wedding and skip any new active skincare in the final 3 days. A calm skin holds makeup far better than a freshly exfoliated one.',
+			'Second, ask for airbrush or long-wear HD foundation. It sets thinner, photographs without flashback and lasts through sweat. Finish with a fixing spray, not extra powder — powder cakes in humidity.',
+			'Third, keep a touch-up kit in your clutch: blotting paper (never tissue), your lipstick, and a mini setting spray. Blot first, then powder — the order matters.',
+			'Fourth, waterproof everything on the eyes. Lash glue, liner and mascara should all be waterproof; happy tears are guaranteed.',
+			'Finally, book a trial. Seeing the look on your own skin, in daylight, removes all guesswork — and it is the one appointment every bride tells us she was glad she did.'
+		]
 	},
 	{
+		slug: 'glow-facial-what-it-is-who-it-suits',
 		title: 'The Glow Facial: What It Is and Who It Suits',
 		category: 'Skin Care',
 		date: '28 Oct 2026',
 		excerpt: 'A gentle, no-downtime facial for dull, tired skin — and how to make the glow last for weeks.',
 		image: 'service-skin',
-		alt: 'Woman receiving a white facial mask treatment'
+		alt: 'Woman receiving a white facial mask treatment',
+		body: [
+			'The glow facial is our most-booked skin treatment, and the gentlest. No peels, no downtime — just deep cleansing, light exfoliation, a hydrating mask and a slow glow massage.',
+			'It suits almost everyone, especially dull or tired skin, and skin that has seen too much sun. If your skin is sensitive, tell us at booking — we switch to fragrance-free products and skip exfoliation entirely.',
+			'The glow peaks 24–48 hours after the facial, so book 3–5 days before an event, not the day before. Drink water, wear SPF, and skip strong actives for two days after.',
+			'For lasting results, a facial every 4–6 weeks beats one expensive treatment a year. Skin is a routine, not a rescue mission.'
+		]
 	},
 	{
+		slug: 'hair-care-after-colour-weekly-routine',
 		title: 'Hair Care After Colour: A Simple Weekly Routine',
 		category: 'Hair',
 		date: '10 Oct 2026',
 		excerpt: 'Three small habits that keep coloured hair soft, shiny and healthy between salon visits.',
 		image: 'service-hair',
-		alt: 'Indian woman with long wavy hair after a salon styling session'
+		alt: 'Indian woman with long wavy hair after a salon styling session',
+		body: [
+			'Coloured hair is not high-maintenance — it just needs three small habits. First, wash less: 2–3 times a week with a sulphate-free shampoo keeps colour from fading.',
+			'Second, oil once a week. A light oil on the lengths for 30 minutes before washing does more than most expensive masks.',
+			'Third, protect it from heat. Always use a heat protectant before styling, and keep hot tools at medium heat — coloured hair dries out faster.',
+			'Come back for a gloss or toner every 6–8 weeks and your colour will look freshly done all year.'
+		]
+	},
+	{
+		slug: 'hd-vs-airbrush-bridal-makeup',
+		title: 'HD vs Airbrush Bridal Makeup: Which One Is Right for You?',
+		category: 'Bridal',
+		date: '24 Sep 2026',
+		excerpt: 'Both photograph beautifully. The difference is wear time, finish and how your skin feels at 2 AM.',
+		image: 'service-beauty',
+		alt: 'Natural glam makeup look',
+		body: [
+			'HD makeup uses a high-definition foundation blended with brushes and sponges. It looks like skin, covers beautifully and suits most brides — especially if you like a soft, natural finish.',
+			'Airbrush sprays a fine mist of foundation onto the skin. The layer is thinner, so it lasts longer — up to 16 hours — and holds up better in heat, humidity and tears.',
+			'Our rule of thumb: a daytime wedding with lots of outdoor photos leans airbrush; an intimate evening wedding leans HD. Sensitive or very dry skin usually prefers HD.',
+			'The honest answer is that the artist matters more than the technique. A trial lets you see both on your own skin before you decide.'
+		]
+	},
+	{
+		slug: 'pre-wedding-skin-prep-timeline',
+		title: 'Pre-Wedding Skin Prep: A Simple 3-Month Timeline',
+		category: 'Skin Care',
+		date: '08 Sep 2026',
+		excerpt: 'What to do 3 months, 1 month and 1 week before the wedding — and what to stop doing.',
+		image: 'about-facial',
+		alt: 'Relaxing facial treatment in progress',
+		body: [
+			'Three months out: start a simple routine — cleanser, moisturiser, SPF. Book a skin consultation so we know your skin before we plan your look.',
+			'One month out: monthly facials begin, and this is the last window for any new treatment. Nothing new after this point.',
+			'One week out: final facial 3–5 days before the wedding, good sleep, lots of water. No new products, no scrubs, no experiments.',
+			'On the day: arrive with clean, moisturised skin and no makeup. We handle the rest.'
+		]
+	},
+	{
+		slug: 'how-to-choose-bridal-makeup-artist',
+		title: 'How to Choose a Bridal Makeup Artist in Mumbai',
+		category: 'Bridal',
+		date: '20 Aug 2026',
+		excerpt: 'Five checks before you book: portfolio, trial, one-bride-a-day, products and the advance.',
+		image: 'about-main',
+		alt: 'Soft glam portrait in natural light',
+		body: [
+			'First, check the portfolio for real brides with your skin tone, in natural light — not filtered studio shots. Ask who exactly will do your makeup on the day.',
+			'Second, always do a trial. It is the only way to know how the look wears on your skin for 10+ hours.',
+			'Third, ask if the artist takes one bride a day. An artist rushing between two weddings cannot stay with you through every function.',
+			'Fourth, ask which products they use and whether they patch-test. Your skin will thank you.',
+			'Finally, understand the advance: 40% is the Mumbai standard, and it should be clearly written down with reschedule terms.'
+		]
 	}
+];
+
+export type FaqItem = { q: string; a: string };
+
+export const faqs: FaqItem[] = [
+	{
+		q: 'How far ahead should I book my bridal date?',
+		a: '4–6 months ahead for peak wedding season (Nov–Feb). We take one bride per day and dates fill fast — a 40% advance locks your date.'
+	},
+	{
+		q: 'Do you offer a bridal trial?',
+		a: 'Yes. Confirmed bookings get a free half-face trial so you can see the look on your own skin before the day.'
+	},
+	{
+		q: 'What payment methods do you accept?',
+		a: 'UPI (GPay / PhonePe / Paytm), cards and cash. Bridal bookings need a 40% advance; the rest is due on the day.'
+	},
+	{
+		q: 'What is your cancellation policy?',
+		a: 'Reschedule free up to 7 days before your appointment. Bridal advances are non-refundable but transferable to a new date once.'
+	},
+	{
+		q: 'Will the makeup last in Mumbai heat and humidity?',
+		a: 'Yes — we use long-wear HD and airbrush products, set with fixing spray, and give you a touch-up kit for the day.'
+	},
+	{
+		q: 'Do you travel for outstation or destination weddings?',
+		a: 'Yes, across India. Travel and stay are charged at actuals, and we confirm them in writing before you book.'
+	},
+	{
+		q: 'I have sensitive skin. Is a facial or makeup safe for me?',
+		a: 'Yes — tell us at booking. We use fragrance-free, patch-tested products, skip active exfoliation, and patch-test colour on your first visit.'
+	},
+	{
+		q: 'How long does party makeup take?',
+		a: 'About 90 minutes including quick hairstyling. Bridal looks take about 3 hours per look.'
+	},
+	{
+		q: 'Do you do group bookings for bridesmaids?',
+		a: 'Yes — bridesmaids and family get mini-looks at a group rate. Tell us the headcount when you book.'
+	},
+	{
+		q: 'Where are you located?',
+		a: '2nd Floor, 14 Glow Lane, Linking Road, Bandra West, Mumbai — 5 minutes from Bandra station. Walk-ins are welcome; appointments are preferred.'
+	},
+	{
+		q: 'What are your hours?',
+		a: 'Monday to Saturday, 9:00 AM – 7:00 PM IST. Sundays are bridal-only by prior booking.'
+	},
+	{
+		q: 'Do you sell gift cards?',
+		a: 'Yes — gift cards start at ₹1,000 and work on any service. Ask at the studio or on WhatsApp.'
+	}
+];
+
+export type Offer = { title: string; detail: string; tag: string };
+
+export const offers: Offer[] = [
+	{
+		title: 'First Visit Glow',
+		detail: '20% off your first facial or haircut — mention this site when you book.',
+		tag: 'New clients'
+	},
+	{
+		title: 'Bridal + Sangeet Combo',
+		detail: 'Book 3 bridal looks together and save ₹10,000 on the Signature Combo.',
+		tag: 'Brides'
+	},
+	{
+		title: 'Bring a Friend',
+		detail: 'Book together and you both get a free blow-dry with any service above ₹1,999.',
+		tag: 'Refer a friend'
+	}
+];
+
+export type InstagramPost = { image: string; alt: string; caption: string; likes: string };
+
+export const instagramPosts: InstagramPost[] = [
+	{ image: 'gallery-bridal', alt: 'Bridal look', caption: 'Airbrush bridal for Ananya — 16-hour wear, zero touch-ups needed.', likes: '1.2k' },
+	{ image: 'service-hair', alt: 'Hair styling', caption: 'Soft waves + gloss for the weekend. No filter, just good light.', likes: '860' },
+	{ image: 'service-skin', alt: 'Facial', caption: 'Glow facial day — this skin had not slept in a week.', likes: '940' },
+	{ image: 'service-nails', alt: 'Nails', caption: 'Dark, glossy, and lasting 3 weeks. Gel, done right.', likes: '720' },
+	{ image: 'service-beauty', alt: 'Party glam', caption: 'Sangeet glam that survived 4 hours of dancing.', likes: '1.5k' },
+	{ image: 'about-main', alt: 'Soft glam portrait', caption: 'Soft glam, natural light, real skin.', likes: '1.1k' }
 ];
 
 export function inr(amount: number): string {
