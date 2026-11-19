@@ -21,11 +21,11 @@
 		? 'shadow-[0_2px_16px_rgba(33,29,25,0.06)]'
 		: ''}"
 >
-	<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+	<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
 		<a href="/" class="flex min-h-11 items-center gap-2 text-gold-dark" aria-label="Lumina Beauty Studio — home">
 			<Logo />
 			<span class="leading-none">
-				<span class="block font-display text-[1.4rem] tracking-[0.18em] text-ink">LUMINA</span>
+				<span class="block font-display text-[1.25rem] tracking-[0.18em] text-ink">LUMINA</span>
 				<span class="block text-[0.6rem] tracking-[0.42em] text-muted">BEAUTY STUDIO</span>
 			</span>
 		</a>
@@ -42,13 +42,10 @@
 		</nav>
 
 		<div class="hidden items-center gap-4 md:flex">
-			<div class="text-right leading-tight">
-				<a href={site.phoneHref} class="flex min-h-11 items-center justify-end gap-1.5 text-[0.95rem] font-semibold text-ink">
-					<Phone size={15} aria-hidden="true" />
-					{site.phoneDisplay}
-				</a>
-				<p class="text-xs text-muted">Bandra West, Mumbai</p>
-			</div>
+			<a href={site.phoneHref} class="flex min-h-11 items-center gap-1.5 text-[0.95rem] font-semibold text-ink">
+				<Phone size={15} aria-hidden="true" />
+				{site.phoneDisplay}
+			</a>
 			<a
 				href="/book"
 				class="inline-flex min-h-11 items-center rounded-full bg-gold px-5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gold-dark"
