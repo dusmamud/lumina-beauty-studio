@@ -10,7 +10,7 @@
 				<p class="text-xs font-bold tracking-[0.3em] text-gold-dark">BLOG</p>
 				<h2 class="mt-3 font-display text-[clamp(1.9rem,4vw,2.6rem)] font-medium text-ink">Beauty Notes</h2>
 			</div>
-			<a href="/blog" class="inline-flex min-h-11 items-center font-semibold text-gold-dark underline underline-offset-4">
+			<a href="/blog" class="inline-flex min-h-12 items-center font-semibold text-gold-dark underline underline-offset-4">
 				View all articles →
 			</a>
 		</div>
@@ -36,7 +36,7 @@
 						<p class="mt-2 text-[0.95rem] leading-relaxed text-muted">{post.excerpt}</p>
 						<a
 							href="/blog/{post.slug}"
-							class="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-gold-dark underline underline-offset-4"
+							class="mt-3 inline-flex min-h-12 items-center text-sm font-semibold text-gold-dark underline underline-offset-4"
 						>
 							Read article →
 						</a>

@@ -114,7 +114,7 @@
 			{#if checkResult.available}
 				<a
 					href="/book?service=bridal-makeup"
-					class="mt-3 inline-flex min-h-11 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark"
+					class="mt-3 inline-flex min-h-12 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark"
 				>
 					Lock this date →
 				</a>
@@ -123,7 +123,7 @@
 					href={site.whatsappHref}
 					target="_blank"
 					rel="noopener"
-					class="mt-3 inline-flex min-h-11 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark"
+					class="mt-3 inline-flex min-h-12 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark"
 				>
 					Join the waitlist on WhatsApp →
 				</a>

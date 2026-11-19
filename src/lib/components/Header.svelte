@@ -21,8 +21,8 @@
 		? 'shadow-[0_2px_16px_rgba(33,29,25,0.06)]'
 		: ''}"
 >
-	<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
-		<a href="/" class="flex min-h-11 items-center gap-2 text-gold-dark" aria-label="Lumina Beauty Studio — home">
+	<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-1 sm:px-6 lg:px-8">
+		<a href="/" class="flex min-h-12 items-center gap-2 text-gold-dark" aria-label="Lumina Beauty Studio — home">
 			<Logo />
 			<span class="leading-none">
 				<span class="block font-display text-[1.25rem] tracking-[0.18em] text-ink">LUMINA</span>
@@ -30,11 +30,11 @@
 			</span>
 		</a>
 
-		<nav aria-label="Primary" class="hidden items-center gap-7 lg:flex">
+		<nav aria-label="Primary" class="hidden items-center gap-5 xl:flex">
 			{#each nav as item}
 				<a
 					href={item.href}
-					class="min-h-11 content-center text-[0.95rem] font-medium text-ink/80 transition-colors duration-150 hover:text-gold-dark"
+					class="min-h-12 content-center text-[0.95rem] font-medium whitespace-nowrap text-ink/80 transition-colors duration-150 hover:text-gold-dark"
 				>
 					{item.label}
 				</a>
@@ -42,13 +42,16 @@
 		</nav>
 
 		<div class="hidden items-center gap-4 md:flex">
-			<a href={site.phoneHref} class="flex min-h-11 items-center gap-1.5 text-[0.95rem] font-semibold text-ink">
+			<a
+				href={site.phoneHref}
+				class="flex min-h-12 items-center gap-1.5 text-[0.95rem] font-semibold whitespace-nowrap text-ink"
+			>
 				<Phone size={15} aria-hidden="true" />
 				{site.phoneDisplay}
 			</a>
 			<a
 				href="/book"
-				class="inline-flex min-h-11 items-center rounded-full bg-gold px-5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gold-dark"
+				class="inline-flex min-h-12 items-center rounded-full bg-gold px-5 text-sm font-semibold whitespace-nowrap text-white transition-colors duration-200 hover:bg-gold-dark"
 			>
 				Book Appointment
 			</a>
@@ -56,7 +59,7 @@
 
 		<button
 			type="button"
-			class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-ink lg:hidden"
+			class="flex min-h-12 min-w-12 items-center justify-center rounded-full text-ink xl:hidden"
 			aria-expanded={open}
 			aria-controls="mobile-menu"
 			aria-label={open ? 'Close menu' : 'Open menu'}
@@ -71,12 +74,12 @@
 			id="mobile-menu"
 			aria-label="Mobile"
 			data-lenis-prevent
-			class="border-t border-line bg-cream px-4 pb-4 pt-2 lg:hidden"
+			class="border-t border-line bg-cream px-4 pb-4 pt-2 xl:hidden"
 		>
 			{#each nav as item}
 				<a
 					href={item.href}
-					class="block min-h-11 content-center border-b border-line/60 py-2 text-base font-medium text-ink"
+					class="block min-h-12 content-center border-b border-line/60 py-2 text-base font-medium text-ink"
 					onclick={() => (open = false)}
 				>
 					{item.label}

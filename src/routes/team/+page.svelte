@@ -50,7 +50,7 @@
 						<p class="mt-4 text-sm text-muted">In studio: {artist.days}</p>
 						<a
 							href="/book?artist={artist.id}"
-							class="mt-5 inline-flex min-h-11 items-center rounded-full bg-gold px-6 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gold-dark"
+							class="mt-5 inline-flex min-h-12 items-center rounded-full bg-gold px-6 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gold-dark"
 						>
 							Book with {artist.name.split(' ')[0]} →
 						</a>

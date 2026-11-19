@@ -59,7 +59,7 @@
 					<p class="mt-2 text-sm font-semibold text-gold-dark">From {inr(service.priceFrom)}</p>
 					<a
 						href="/book?service={service.id}"
-						class="mt-3 inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold text-gold-dark underline decoration-gold/40 underline-offset-4 transition-colors hover:text-ink"
+						class="mt-3 inline-flex min-h-12 items-center rounded-full px-4 text-sm font-semibold text-gold-dark underline decoration-gold/40 underline-offset-4 transition-colors hover:text-ink"
 						aria-label="Book {service.title}"
 					>
 						Book this service →

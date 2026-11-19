@@ -46,13 +46,13 @@
 					<div class="mt-5 flex gap-3">
 						<a
 							href="/services/{service.id}"
-							class="inline-flex min-h-11 flex-1 items-center justify-center rounded-full border border-gold/50 px-5 text-sm font-semibold text-gold-dark transition-colors hover:border-gold-dark"
+							class="inline-flex min-h-12 flex-1 items-center justify-center rounded-full border border-gold/50 px-5 text-sm font-semibold text-gold-dark transition-colors hover:border-gold-dark"
 						>
 							View details
 						</a>
 						<a
 							href="/book?service={service.id}"
-							class="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-gold px-5 text-sm font-semibold text-white transition-colors hover:bg-gold-dark"
+							class="inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-gold px-5 text-sm font-semibold text-white transition-colors hover:bg-gold-dark"
 						>
 							Book now
 						</a>

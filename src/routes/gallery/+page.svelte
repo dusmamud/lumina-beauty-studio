@@ -1,10 +1,22 @@
 <script lang="ts">
+	import BeforeAfter from '#lib/components/BeforeAfter.svelte';
 	import PageHero from '#lib/components/PageHero.svelte';
-	import { gallery, galleryCategories, site } from '#lib/data/site.ts';
+	import { artists, beforeAfter, gallery, galleryCategories, site } from '#lib/data/site.ts';
 	import Picture from '#lib/components/Picture.svelte';
 
 	let filter = $state<(typeof galleryCategories)[number]>('All');
 	const visible = $derived(filter === 'All' ? gallery : gallery.filter((g) => g.category === filter));
+
+	let serviceFilter = $state('All');
+	let artistFilter = $state('all');
+	const baServices = ['All', ...new Set(beforeAfter.map((b) => b.service))];
+	const visibleBeforeAfter = $derived(
+		beforeAfter.filter(
+			(b) =>
+				(serviceFilter === 'All' || b.service === serviceFilter) &&
+				(artistFilter === 'all' || b.artist === artistFilter)
+		)
+	);
 </script>
 
 <svelte:head>
@@ -27,7 +39,7 @@
 		{#each galleryCategories as cat}
 			<button
 				type="button"
-				class="min-h-11 rounded-full px-5 text-sm font-semibold transition-colors duration-150 {filter === cat
+				class="min-h-12 rounded-full px-5 text-sm font-semibold transition-colors duration-150 {filter === cat
 					? 'bg-ink text-white'
 					: 'bg-white text-ink ring-1 ring-line hover:border-gold-dark hover:text-gold-dark'}"
 				aria-pressed={filter === cat}
@@ -65,6 +77,62 @@
 	{#if visible.length === 0}
 		<p class="mt-8 text-center text-muted">No photos in this category yet — check back soon.</p>
 	{/if}
+
+	<h2 class="mt-16 font-display text-3xl font-medium text-ink">Before &amp; after</h2>
+	<p class="mt-2 max-w-2xl leading-relaxed text-muted">
+		Drag the handle (or use the arrow keys) to compare. Mock preview for design approval: the “before” side is the same photo shown with a filter — real before/after pairs need written client consent and are added after approval.
+	</p>
+
+	<div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filter before and after by service">
+		{#each baServices as s}
+			<button
+				type="button"
+				class="min-h-12 rounded-full px-5 text-sm font-semibold transition-colors duration-150 {serviceFilter === s
+					? 'bg-ink text-white'
+					: 'bg-white text-ink ring-1 ring-line hover:border-gold-dark hover:text-gold-dark'}"
+				aria-pressed={serviceFilter === s}
+				onclick={() => (serviceFilter = s)}
+			>
+				{s}
+			</button>
+		{/each}
+	</div>
+	<div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Filter before and after by artist">
+		<button
+			type="button"
+			class="min-h-12 rounded-full px-5 text-sm font-semibold transition-colors duration-150 {artistFilter === 'all'
+				? 'bg-ink text-white'
+				: 'bg-white text-ink ring-1 ring-line hover:border-gold-dark hover:text-gold-dark'}"
+			aria-pressed={artistFilter === 'all'}
+			onclick={() => (artistFilter = 'all')}
+		>
+			All artists
+		</button>
+		{#each artists as a}
+			<button
+				type="button"
+				class="min-h-12 rounded-full px-5 text-sm font-semibold transition-colors duration-150 {artistFilter === a.id
+					? 'bg-ink text-white'
+					: 'bg-white text-ink ring-1 ring-line hover:border-gold-dark hover:text-gold-dark'}"
+				aria-pressed={artistFilter === a.id}
+				onclick={() => (artistFilter = a.id)}
+			>
+				{a.name.split(' ')[0]}
+			</button>
+		{/each}
+	</div>
+
+	<div class="mt-8 grid gap-6 sm:grid-cols-2">
+		{#each visibleBeforeAfter as item}
+			<div>
+				<BeforeAfter image={item.image} alt={item.alt} label={item.label} />
+			</div>
+		{/each}
+	</div>
+	{#if visibleBeforeAfter.length === 0}
+		<p class="mt-8 text-center text-muted">No before &amp; after work for this combination yet — check back soon.</p>
+	{/if}
+
 	<p class="mt-10 text-center">
 		<a
 			href="/book"

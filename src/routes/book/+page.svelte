@@ -160,7 +160,7 @@
 					{#each times as t}
 						<button
 							type="button"
-							class="min-h-11 min-w-20 rounded-full px-4 text-sm font-semibold transition-colors {time === t
+							class="min-h-12 min-w-20 rounded-full px-4 text-sm font-semibold transition-colors {time === t
 								? 'bg-ink text-white'
 								: 'bg-cream text-ink ring-1 ring-line hover:ring-gold-dark'}"
 							aria-pressed={time === t}
@@ -230,7 +230,7 @@
 				<div class="mt-6 flex justify-between">
 					<button
 						type="button"
-						class="inline-flex min-h-11 items-center rounded-full px-5 text-sm font-semibold text-muted disabled:opacity-40"
+						class="inline-flex min-h-12 items-center rounded-full px-5 text-sm font-semibold text-muted disabled:opacity-40"
 						disabled={step === 1}
 						onclick={() => (step -= 1)}
 					>

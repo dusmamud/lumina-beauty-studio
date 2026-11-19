@@ -42,7 +42,7 @@
 					<p class="mt-2 flex-1 text-[0.95rem] leading-relaxed text-muted">{post.excerpt}</p>
 					<a
 						href="/blog/{post.slug}"
-						class="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-gold-dark underline underline-offset-4"
+						class="mt-4 inline-flex min-h-12 items-center text-sm font-semibold text-gold-dark underline underline-offset-4"
 					>
 						Read article →
 					</a>

@@ -7,6 +7,8 @@ const staticPages = [
 	{ path: '/about', priority: '0.8', changefreq: 'monthly' },
 	{ path: '/services', priority: '0.9', changefreq: 'weekly' },
 	{ path: '/bridal', priority: '0.9', changefreq: 'weekly' },
+	{ path: '/consultation', priority: '0.7', changefreq: 'monthly' },
+	{ path: '/gift-cards', priority: '0.7', changefreq: 'monthly' },
 	{ path: '/team', priority: '0.7', changefreq: 'monthly' },
 	{ path: '/gallery', priority: '0.8', changefreq: 'weekly' },
 	{ path: '/pricing', priority: '0.9', changefreq: 'weekly' },
@@ -15,6 +17,8 @@ const staticPages = [
 	{ path: '/contact', priority: '0.8', changefreq: 'monthly' },
 	{ path: '/faq', priority: '0.7', changefreq: 'monthly' },
 	{ path: '/policies', priority: '0.5', changefreq: 'monthly' },
+	{ path: '/accessibility', priority: '0.5', changefreq: 'yearly' },
+	{ path: '/first-visit', priority: '0.7', changefreq: 'monthly' },
 	{ path: '/blog', priority: '0.8', changefreq: 'weekly' },
 	{ path: '/privacy', priority: '0.3', changefreq: 'yearly' },
 	{ path: '/terms', priority: '0.3', changefreq: 'yearly' }

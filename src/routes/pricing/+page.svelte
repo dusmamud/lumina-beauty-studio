@@ -50,7 +50,7 @@
 						<p class="mt-1 text-sm text-muted">{pkg.looks}</p>
 						<a
 							href="/bridal"
-							class="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-gold-dark underline underline-offset-4"
+							class="mt-3 inline-flex min-h-12 items-center text-sm font-semibold text-gold-dark underline underline-offset-4"
 						>
 							See what is included →
 						</a>

@@ -27,9 +27,10 @@ export const site = {
 
 export const nav = [
 	{ label: 'Home', href: '/' },
-	{ label: 'About Us', href: '/about' },
+	{ label: 'About', href: '/about' },
 	{ label: 'Services', href: '/services' },
 	{ label: 'Bridal', href: '/bridal' },
+	{ label: 'Consultation', href: '/consultation' },
 	{ label: 'Gallery', href: '/gallery' },
 	{ label: 'Blog', href: '/blog' },
 	{ label: 'Contact', href: '/contact' }
@@ -104,6 +105,7 @@ export const services: Service[] = [
 
 export type ServiceDetail = {
 	long: string;
+	about: string[];
 	duration: string;
 	includes: string[];
 	addOns: { name: string; price: number }[];
@@ -113,6 +115,11 @@ export type ServiceDetail = {
 export const serviceDetails: Record<string, ServiceDetail> = {
 	'bridal-makeup': {
 		long: 'Your wedding look, built around you — skin prep, a trial, and one artist with you from the first function to the last photo. We do one bride a day, so your date is fully yours.',
+		about: [
+			'A wedding look is never just makeup — it is the whole day, planned backwards from your last photo. We start with a skin consultation weeks before the wedding, because the best bridal makeup begins with calm, hydrated skin, not with more product on the day. Your artist maps every function — haldi, mehendi, sangeet, wedding, reception — and plans how the look changes between them without starting from scratch.',
+			'On the day, one artist stays with you from the first function to the last photo. We take only one bride a day, so there is no rushing between weddings and no handing you to an assistant halfway through. Your look is built in layers — long-wear HD or airbrush foundation, waterproof eyes, false lashes — and finished with a fixing spray that holds through Mumbai heat, humidity and happy tears.',
+			'Every booking includes a free half-face trial, so you see the exact look on your own skin before the day. Bring your outfit, your jewellery and reference photos; we match the look to all three. And before you leave, you get a touch-up kit — blotting paper, your lipstick, a mini setting spray — because the best makeup is the one you can fix yourself at 2 AM.'
+		],
 		duration: '3 hrs per look',
 		includes: [
 			'HD or airbrush makeup with false lashes',
@@ -143,6 +150,11 @@ export const serviceDetails: Record<string, ServiceDetail> = {
 	},
 	'party-makeup': {
 		long: 'Soft glam that photographs beautifully and feels light — for sangeets, receptions, birthdays, shoots and evenings out. Ready in about 90 minutes.',
+		about: [
+			'Party makeup should look like you on your best day — not like someone else. We start by asking where you are going and what you are wearing, then build a soft-glam look that photographs beautifully and still feels light after four hours of dancing, eating and hugging relatives.',
+			'The look takes about 90 minutes, including quick hairstyling — soft waves, a low bun or a smooth blowout. Lashes are included, and everything is set with fixing spray so you are not checking the mirror every twenty minutes. If your skin is sensitive, tell us at booking; we use fragrance-free, patch-tested products.',
+			'Bring your outfit or a photo of it, and we will match the look to the colours you are actually wearing. Groups of three or more get a small per-person discount, and bridesmaids can book mini-looks on the same day.'
+		],
 		duration: '90 min',
 		includes: [
 			'Soft glam or bold evening look',
@@ -168,6 +180,11 @@ export const serviceDetails: Record<string, ServiceDetail> = {
 	},
 	'hair-styling': {
 		long: 'Cuts, colour and styling by senior stylists who work with Indian hair every day — wavy, curly, thick or fine. We talk first, cut second.',
+		about: [
+			'Good hair starts with a conversation, not a pair of scissors. Your stylist looks at your hair’s texture, thickness and history — colour, heat damage, how you actually style it at home — before suggesting a cut. We work with Indian hair every day: wavy, curly, thick, fine, and everything in between.',
+			'Two of our stylists specialise in curly cuts, working with your natural pattern instead of thinning it out or straightening it away. Colour is always patch-tested on your first visit — free, 48 hours before the appointment — and we talk honestly about what your hair can and cannot do in one sitting.',
+			'Every cut and colour ends with a blow-dry finish and aftercare advice for your hair type: which shampoo, how often to wash, when to come back for a gloss. The goal is hair that still looks good three weeks later, not just in the salon mirror.'
+		],
 		duration: '45–90 min',
 		includes: [
 			'Consultation + wash',
@@ -193,6 +210,11 @@ export const serviceDetails: Record<string, ServiceDetail> = {
 	},
 	'skin-treatments': {
 		long: 'Facials and skin rituals matched to your skin, not a menu — deep cleanse, glow, hydration or calming care for sensitive skin.',
+		about: [
+			'No two skins are the same, so no two facials should be either. Every skin treatment starts with a skin analysis — we look at hydration, sensitivity, sun damage and what your current routine is doing — and then choose the facial your skin actually needs, not the most expensive one on the menu.',
+			'The signature glow facial is our most-booked treatment: deep cleanse, light exfoliation, a hydrating mask and a slow glow massage. No peels, no downtime, no redness the next day. If your skin is sensitive, we switch to fragrance-free products and skip exfoliation entirely.',
+			'The glow peaks 24–48 hours after the facial, so book 3–5 days before an event, never the day before. For lasting results, a facial every 4–6 weeks beats one expensive treatment a year — skin is a routine, not a rescue mission.'
+		],
 		duration: '60–90 min',
 		includes: [
 			'Skin analysis first',
@@ -218,6 +240,11 @@ export const serviceDetails: Record<string, ServiceDetail> = {
 	},
 	'nail-care': {
 		long: 'Classic care, gel polish and nail art — with hospital-grade hygiene: sterilised tools, single-use files and sealed polishes.',
+		about: [
+			'Great nails are 80% care and 20% colour. Every manicure and pedicure starts with a soak, careful shaping and cuticle care — never rushed, never cut corners. Then the polish: classic, gel, or nail art, applied in thin layers so it wears evenly and lasts.',
+			'Hygiene is non-negotiable here. Metal tools are autoclaved between clients, files are single-use, and polishes are sealed. If you have a nail concern — brittle nails, a fungal worry, an allergy — tell us at booking and we will adjust the treatment or tell you honestly if you should see a doctor first.',
+			'Gel polish lasts 2–3 weeks with normal care, and we remove it free at your next visit — never peel it off at home. Add nail art per nail, a paraffin treatment for dry hands, or gel extensions for a special occasion.'
+		],
 		duration: '45–90 min',
 		includes: [
 			'Soak, shape + cuticle care',
@@ -243,6 +270,11 @@ export const serviceDetails: Record<string, ServiceDetail> = {
 	},
 	'beauty-treatments': {
 		long: 'Gentle waxing, threading and clean-up with hygiene-first care — fresh strips, disposable applicators and patch tests on request.',
+		about: [
+			'Waxing and threading should be quick, gentle and hygienic — in that order. We use fresh strips and disposable applicators for every client, and our therapists work fast without rushing you. Sensitive skin is common, not a problem: tell us at booking and we patch-test first.',
+			'Threading is done with a light hand and a steady one, and every treatment ends with soothing post-care so you walk out without redness. We will also tell you honestly when to wait — about two weeks of growth gives the smoothest waxing result, and we would rather reschedule you than give you a patchy one.',
+			'Beyond waxing and threading, we do brow shaping and tinting, lash lifts and clean-ups — the small treatments that make the biggest difference to how you look every day. Book them together with a facial or haircut and save yourself a second trip.'
+		],
 		duration: '20–60 min',
 		includes: [
 			'Waxing / threading of your choice',
@@ -266,6 +298,15 @@ export const serviceDetails: Record<string, ServiceDetail> = {
 			}
 		]
 	}
+};
+
+export const serviceArtist: Record<string, string> = {
+	'bridal-makeup': 'meera',
+	'party-makeup': 'aisha',
+	'hair-styling': 'ravi',
+	'skin-treatments': 'sana',
+	'nail-care': 'sana',
+	'beauty-treatments': 'aisha'
 };
 
 export type Artist = {
@@ -662,6 +703,196 @@ export const instagramPosts: InstagramPost[] = [
 	{ image: 'service-nails', alt: 'Nails', caption: 'Dark, glossy, and lasting 3 weeks. Gel, done right.', likes: '720' },
 	{ image: 'service-beauty', alt: 'Party glam', caption: 'Sangeet glam that survived 4 hours of dancing.', likes: '1.5k' },
 	{ image: 'about-main', alt: 'Soft glam portrait', caption: 'Soft glam, natural light, real skin.', likes: '1.1k' }
+];
+
+export type ConsultationStep = { title: string; detail: string };
+
+export const consultationSteps: ConsultationStep[] = [
+	{
+		title: 'Tell us about you',
+		detail: 'Skin, hair, allergies, what you liked or hated last time — 10 minutes of honest talk before anyone touches a brush.'
+	},
+	{
+		title: 'We look, then we plan',
+		detail: 'Your artist checks your skin or hair in natural light and maps a look that suits your face, outfit and the occasion.'
+	},
+	{
+		title: 'Try it on your skin',
+		detail: 'For colour and bridal, a patch test or a half-face trial shows you exactly how it will look and wear.'
+	},
+	{
+		title: 'You leave with a plan',
+		detail: 'Price, duration, aftercare and the right date — written down, no surprises later.'
+	}
+];
+
+export const patchTestNotes: string[] = [
+	'Free, and takes 10 minutes — a small amount of product behind your ear or on your inner arm.',
+	'Colour needs 48 hours before your appointment, so book your patch test at least two days ahead.',
+	'We patch-test on your first colour visit, and again if you change products or have had a reaction elsewhere.',
+	'If you have ever reacted to hair colour, tell us at booking — do not skip the test.',
+	'Skin treatments use fragrance-free, patch-tested products; tell us about allergies and we adjust.'
+];
+
+export type GiftCard = { amount: number; label: string; note: string };
+
+export const giftCards: GiftCard[] = [
+	{
+		amount: 1000,
+		label: 'A little glow',
+		note: 'Covers threading, a classic manicure, or part of any service.'
+	},
+	{
+		amount: 2500,
+		label: 'The glow facial',
+		note: 'A full signature facial, or a haircut and blow-dry.'
+	},
+	{
+		amount: 5000,
+		label: 'The full treat',
+		note: 'Party makeup, or a facial plus gel nails — their pick.'
+	},
+	{
+		amount: 10000,
+		label: 'The bridal gift',
+		note: 'Part of a bridal package, or a full day of pampering.'
+	}
+];
+
+export const giftCardHowItWorks: ConsultationStep[] = [
+	{
+		title: 'Pick an amount',
+		detail: '₹1,000, ₹2,500, ₹5,000 or ₹10,000 — or any amount in between.'
+	},
+	{
+		title: 'Call or WhatsApp us',
+		detail: 'Tell us the amount and the recipient’s name. Pay by UPI, card or cash at the studio.'
+	},
+	{
+		title: 'We send the card',
+		detail: 'Digital card on WhatsApp or email the same day; a printed card at the studio if you prefer.'
+	},
+	{
+		title: 'They book',
+		detail: 'The recipient books any service and mentions the card code — it works like cash at the studio.'
+	}
+];
+
+export const giftCardValidity =
+	'Valid for 12 months from purchase, on any service, for anyone. The card is transferable once, and any unused balance stays on the card for the next visit.';
+
+export type BeforeAfterItem = {
+	image: string;
+	alt: string;
+	service: string;
+	artist: string;
+	label: string;
+};
+
+export const beforeAfter: BeforeAfterItem[] = [
+	{
+		image: 'gallery-bridal',
+		alt: 'Bridal HD makeup, soft glam, by Meera',
+		service: 'Bridal',
+		artist: 'meera',
+		label: 'Airbrush bridal — Meera'
+	},
+	{
+		image: 'service-hair',
+		alt: 'Balayage and blow-dry finish, by Ravi',
+		service: 'Hair',
+		artist: 'ravi',
+		label: 'Balayage + blow-dry — Ravi'
+	},
+	{
+		image: 'service-skin',
+		alt: 'Glow facial result, by Sana',
+		service: 'Skin',
+		artist: 'sana',
+		label: 'Glow facial — Sana'
+	},
+	{
+		image: 'service-nails',
+		alt: 'Gel manicure with dark glossy polish, by Sana',
+		service: 'Nails',
+		artist: 'sana',
+		label: 'Gel nails — Sana'
+	}
+];
+
+export type AccessibilityFeature = { title: string; detail: string };
+
+export const accessibilityFeatures: AccessibilityFeature[] = [
+	{
+		title: 'Step-free access',
+		detail: 'The studio is on the 2nd floor with a lift from the ground floor, and the entrance and treatment rooms are step-free.'
+	},
+	{
+		title: 'Accessible washroom',
+		detail: 'A step-free, accessible washroom is available inside the studio.'
+	},
+	{
+		title: 'Assistance on request',
+		detail: 'Tell us when you book and we will help with stairs, seating, or anything else — a chair in the waiting area, a quieter slot, extra time.'
+	},
+	{
+		title: 'Service animals welcome',
+		detail: 'Guide and assistance dogs are welcome in the studio.'
+	},
+	{
+		title: 'Sensory-friendly visits',
+		detail: 'If bright lights, strong scents or noise are a problem, ask for a quieter slot — early mornings are usually calmest, and we use fragrance-free products on request.'
+	},
+	{
+		title: 'Booking help',
+		detail: 'If the website is hard to use, call or WhatsApp us and we will book for you — no online form needed.'
+	}
+];
+
+export const firstVisitSteps: ConsultationStep[] = [
+	{
+		title: 'Arrive 10 minutes early',
+		detail: 'So we can offer you chai, confirm your booking, and start on time — your slot is yours, we never double-book.'
+	},
+	{
+		title: 'A short consultation',
+		detail: 'Your artist asks about your skin, hair, allergies and what you want — 5 to 10 minutes before we start.'
+	},
+	{
+		title: 'Patch test, if needed',
+		detail: 'First colour visit? We patch-test free, 48 hours before — book it with your consultation.'
+	},
+	{
+		title: 'Your treatment',
+		detail: 'Relax. We explain each step as we go, and you can ask for a pause any time.'
+	},
+	{
+		title: 'Aftercare, written down',
+		detail: 'You leave with simple aftercare and a note of what to avoid for 24–48 hours.'
+	},
+	{
+		title: 'What to bring',
+		detail: 'Reference photos, your outfit for colour matching, and a list of products you are allergic to. Arrive with clean hair for colour, and clean, moisturised skin for makeup.'
+	}
+];
+
+export const firstVisitFaqs: FaqItem[] = [
+	{
+		q: 'Do I need to book, or can I walk in?',
+		a: 'Walk-ins are welcome, but appointments are preferred — booked clients never wait.'
+	},
+	{
+		q: 'What if I am late?',
+		a: 'Call us. We hold your slot for 15 minutes; after that we may need to shorten the treatment.'
+	},
+	{
+		q: 'Can I bring someone with me?',
+		a: 'Yes — one guest is welcome to wait in the lounge. Children under 12 need an adult with them at all times.'
+	},
+	{
+		q: 'How do I pay?',
+		a: 'UPI, cards and cash. Bridal bookings need a 40% advance.'
+	}
 ];
 
 export function inr(amount: number): string {

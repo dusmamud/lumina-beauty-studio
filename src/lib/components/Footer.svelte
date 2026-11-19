@@ -18,11 +18,11 @@
 		<div>
 			<h3 class="font-semibold text-ink">Quick Contact</h3>
 			<p class="mt-3 space-y-2 text-[0.95rem] text-muted">
-				<a href={site.phoneHref} class="flex min-h-11 items-center gap-2 hover:text-gold-dark">
+				<a href={site.phoneHref} class="flex min-h-12 items-center gap-2 hover:text-gold-dark">
 					<Phone size={16} class="text-gold-dark" aria-hidden="true" />
 					{site.phoneDisplay}
 				</a>
-				<a href="mailto:{site.email}" class="flex min-h-11 items-center gap-2 hover:text-gold-dark">
+				<a href="mailto:{site.email}" class="flex min-h-12 items-center gap-2 hover:text-gold-dark">
 					<Mail size={16} class="text-gold-dark" aria-hidden="true" />
 					{site.email}
 				</a>
@@ -35,7 +35,7 @@
 					<a
 						href="#contact"
 						aria-label="Lumina Beauty Studio on {s.label} (mock link)"
-						class="flex h-11 w-11 items-center justify-center rounded-full border border-line text-ink transition-colors duration-150 hover:border-gold hover:text-gold-dark"
+						class="flex h-12 w-12 items-center justify-center rounded-full border border-line text-ink transition-colors duration-150 hover:border-gold hover:text-gold-dark"
 					>
 						<SocialIcon name={s.name as 'facebook' | 'instagram' | 'x'} size={18} />
 					</a>
@@ -43,7 +43,7 @@
 			</div>
 			<nav aria-label="Footer" class="mt-5 flex flex-col gap-1">
 				{#each nav as item}
-					<a href={item.href} class="min-h-11 content-center text-[0.95rem] text-muted hover:text-gold-dark">
+					<a href={item.href} class="min-h-12 content-center text-[0.95rem] text-muted hover:text-gold-dark">
 						{item.label}
 					</a>
 				{/each}
@@ -59,11 +59,13 @@
 	</div>
 	<div class="border-t border-line py-5 text-center text-sm text-muted">
 		<p class="flex flex-wrap justify-center gap-x-5 gap-y-2 px-4">
-			<a href="/faq" class="min-h-11 content-center hover:text-gold-dark">FAQ</a>
-			<a href="/policies" class="min-h-11 content-center hover:text-gold-dark">Booking Policies</a>
-			<a href="/privacy" class="min-h-11 content-center hover:text-gold-dark">Privacy Policy</a>
-			<a href="/terms" class="min-h-11 content-center hover:text-gold-dark">Terms of Service</a>
-			<a href="/sitemap.xml" class="min-h-11 content-center hover:text-gold-dark">Sitemap</a>
+			<a href="/faq" class="min-h-12 content-center hover:text-gold-dark">FAQ</a>
+			<a href="/policies" class="min-h-12 content-center hover:text-gold-dark">Booking Policies</a>
+			<a href="/accessibility" class="min-h-12 content-center hover:text-gold-dark">Accessibility</a>
+			<a href="/first-visit" class="min-h-12 content-center hover:text-gold-dark">First Visit Guide</a>
+			<a href="/privacy" class="min-h-12 content-center hover:text-gold-dark">Privacy Policy</a>
+			<a href="/terms" class="min-h-12 content-center hover:text-gold-dark">Terms of Service</a>
+			<a href="/sitemap.xml" class="min-h-12 content-center hover:text-gold-dark">Sitemap</a>
 		</p>
 		<p class="mt-2 px-4">© 2026 Lumina Beauty Studio. All rights reserved. · Mock website — content for design approval.</p>
 	</div>

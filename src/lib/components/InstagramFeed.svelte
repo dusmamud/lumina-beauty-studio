@@ -7,16 +7,16 @@
 <section class="bg-white py-16 sm:py-20" aria-label="Instagram">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex flex-wrap items-end justify-between gap-4">
-			<div>
+			<div class="min-w-0">
 				<p class="text-xs font-bold tracking-[0.3em] text-gold-dark">INSTAGRAM</p>
-				<h2 class="mt-3 font-display text-[clamp(1.9rem,4vw,2.6rem)] font-medium text-ink">@lumina.beauty.mumbai</h2>
+				<h2 class="mt-3 font-display text-[clamp(1.6rem,7vw,2.6rem)] font-medium break-words text-ink">@lumina.beauty.mumbai</h2>
 				<p class="mt-2 text-muted">Daily looks, reels and behind-the-scenes from the studio.</p>
 			</div>
 			<a
 				href="https://www.instagram.com/"
 				target="_blank"
 				rel="noopener"
-				class="inline-flex min-h-11 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark transition-colors duration-200 hover:border-gold-dark"
+				class="inline-flex min-h-12 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark transition-colors duration-200 hover:border-gold-dark"
 			>
 				Follow us →
 			</a>

@@ -85,7 +85,7 @@
 					</p>
 					<button
 						type="button"
-						class="mt-4 inline-flex min-h-11 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark"
+						class="mt-4 inline-flex min-h-12 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark"
 						onclick={() => {
 							sent = false;
 							name = '';

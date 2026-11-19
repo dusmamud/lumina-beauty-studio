@@ -38,6 +38,14 @@ body {
 	border-radius: 2px;
 }
 
+/* View Transitions: one short crossfade between pages (300ms, no-preference only) */
+@media (prefers-reduced-motion: no-preference) {
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 300ms;
+	}
+}
+
 /* Motion: transform + opacity only, 100–300ms, respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
 	*,

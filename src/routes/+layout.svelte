@@ -7,6 +7,7 @@
 	import '@fontsource/inter/600.css';
 	import '@fontsource/inter/700.css';
 	import '../app.css';
+	import { onNavigate } from '$app/navigation';
 	import Lenis from 'lenis';
 	import gsap from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -17,6 +18,19 @@
 	import { site } from '#lib/data/site.ts';
 
 	let { children } = $props();
+
+	// View Transitions between pages (SvelteKit onNavigate). Skipped when the
+	// browser has no View Transitions API or the user prefers reduced motion.
+	onNavigate((navigation) => {
+		if (!('startViewTransition' in document)) return;
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 
 	const jsonLd = {
 		'@context': 'https://schema.org',
@@ -40,7 +54,6 @@
 			opens: '09:00',
 			closes: '19:00'
 		},
-		aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '480' },
 		priceRange: '₹₹',
 		url: site.url,
 		sameAs: ['https://www.instagram.com/', 'https://www.facebook.com/']

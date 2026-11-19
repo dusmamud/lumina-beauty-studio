@@ -1,12 +1,13 @@
 <script lang="ts">
 	import FaqAccordion from '#lib/components/FaqAccordion.svelte';
-	import { gallery, inr, site } from '#lib/data/site.ts';
+	import { artists, gallery, inr, serviceArtist, site } from '#lib/data/site.ts';
 	import Picture from '#lib/components/Picture.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 	const service = $derived(data.service);
 	const detail = $derived(data.detail);
+	const artist = $derived(artists.find((a) => a.id === serviceArtist[service.id]));
 </script>
 
 <svelte:head>
@@ -26,6 +27,9 @@
 				{service.title}
 			</h1>
 			<p class="mt-4 leading-relaxed text-muted">{detail.long}</p>
+			{#each detail.about as para}
+				<p class="mt-3 leading-relaxed text-muted">{para}</p>
+			{/each}
 			<p class="mt-5 text-lg">
 				From <strong class="text-gold-dark">{inr(service.priceFrom)}</strong>
 				<span class="text-sm text-muted"> · {detail.duration}</span>
@@ -86,6 +90,46 @@
 			</ul>
 		</div>
 	</div>
+
+	{#if artist}
+		<h2 class="mt-14 font-display text-2xl font-medium text-ink">Your artist</h2>
+		<div class="mt-5 flex flex-col gap-5 rounded-3xl bg-white p-6 ring-1 ring-line sm:flex-row sm:items-center sm:p-7">
+			<div class="w-28 shrink-0 overflow-hidden rounded-2xl border border-line">
+				<Picture
+					name={artist.image}
+					alt={artist.imageAlt}
+					width={224}
+					height={224}
+					sizes="112px"
+					imgClass="aspect-square h-auto w-full object-cover"
+					pictureClass="block"
+				/>
+			</div>
+			<div class="min-w-0">
+				<p class="font-display text-xl font-medium text-ink">{artist.name}</p>
+				<p class="mt-0.5 text-sm text-muted">{artist.role} · {artist.experience}</p>
+				<p class="mt-2 flex flex-wrap gap-2">
+					{#each artist.specialties as spec}
+						<span class="rounded-full bg-sand px-3 py-1 text-xs font-semibold text-gold-dark">{spec}</span>
+					{/each}
+				</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					<a
+						href="/book?service={service.id}&artist={artist.id}"
+						class="inline-flex min-h-12 items-center rounded-full bg-gold px-6 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gold-dark"
+					>
+						Book with {artist.name.split(' ')[0]} →
+					</a>
+					<a
+						href="/team"
+						class="inline-flex min-h-12 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark transition-colors duration-200 hover:border-gold-dark"
+					>
+						Meet the whole team
+					</a>
+				</div>
+			</div>
+		</div>
+	{/if}
 
 	<h2 class="mt-14 font-display text-2xl font-medium text-ink">Questions, answered</h2>
 	<div class="mt-5 max-w-3xl">

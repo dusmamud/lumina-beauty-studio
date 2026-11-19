@@ -32,7 +32,7 @@
 			href="https://www.google.com/maps/search/Lumina+Beauty+Studio+Bandra+West+Mumbai"
 			target="_blank"
 			rel="noopener"
-			class="mt-4 inline-flex min-h-11 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark"
+			class="mt-4 inline-flex min-h-12 items-center rounded-full border border-gold/50 px-6 text-sm font-semibold text-gold-dark"
 		>
 			Read all Google reviews →
 		</a>

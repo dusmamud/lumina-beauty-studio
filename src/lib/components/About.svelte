@@ -100,7 +100,7 @@
 					Learn More
 					<ArrowRight size={18} aria-hidden="true" />
 				</a>
-				<a href={site.phoneHref} class="flex min-h-11 items-center gap-2 text-ink">
+				<a href={site.phoneHref} class="flex min-h-12 items-center gap-2 text-ink">
 					<Phone size={18} class="text-gold-dark" aria-hidden="true" />
 					<span>
 						<span class="block font-semibold">{site.phoneDisplay}</span>

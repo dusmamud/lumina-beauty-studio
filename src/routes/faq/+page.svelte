@@ -2,16 +2,6 @@
 	import FaqAccordion from '#lib/components/FaqAccordion.svelte';
 	import PageHero from '#lib/components/PageHero.svelte';
 	import { faqs, site } from '#lib/data/site.ts';
-
-	const jsonLd = {
-		'@context': 'https://schema.org',
-		'@type': 'FAQPage',
-		mainEntity: faqs.map((f) => ({
-			'@type': 'Question',
-			name: f.q,
-			acceptedAnswer: { '@type': 'Answer', text: f.a }
-		}))
-	};
 </script>
 
 <svelte:head>
@@ -21,8 +11,6 @@
 		content="Bridal trials, advances, cancellations, sensitive skin, travel — every question brides and clients ask us, answered plainly."
 	/>
 	<link rel="canonical" href="{site.url}/faq" />
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 </svelte:head>
 
 <PageHero
